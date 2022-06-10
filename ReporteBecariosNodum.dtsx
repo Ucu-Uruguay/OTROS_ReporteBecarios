@@ -1,0 +1,2866 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/31/2022 2:07:17 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PROD-UCUDBS10"
+  DTS:CreatorName="UCUADM\SSLVPN-RCALVO"
+  DTS:DTSID="{EA3CE541-8D1A-4283-A4B2-24224F2C25DD}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{B10124DC-3818-4DEE-AC0F-D006B9A08F19}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.245.0.6.Nodum_Prod.nodum_read]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7877DD67-33F5-421C-AD55-E84DC83EEA79}"
+      DTS:ObjectName="10.245.0.6.Nodum_Prod.nodum_read">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=10.245.0.6;User ID=nodum_read;Initial Catalog=Nodum_Prod;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="wiW7wTSJ1vE="
+            IV="ltioOnc7qUlwijavVTkhUA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+            <CipherData>
+              <CipherValue>ltioOnc7qUlwijavVTkhUMMLvp8R5uU2k+z7MpyWL9v2OB8yc+bXkAfWmj4Osr8PPI7r6pydp1Q722ZwUCKAZd1bxNZVQJduN76vNCA83SQz87qURjx699D/yCims+QvS4hVBn9FO5Gc7Zxg9VPT+a+rQFKASIua/dPysxmKbFM71uTKBFzPMtVhT373PHPA</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[HRPROD.UCU_GP]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{432EADD3-F4D9-4111-89D1-62C6DE19DBF7}"
+      DTS:ObjectName="HRPROD.UCU_GP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=HRPROD;User ID=UCU_GP;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="6QpFHIUjrNg="
+            IV="pciPxCdJyd2sB1TRxdiM7A==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+            <CipherData>
+              <CipherValue>pciPxCdJyd2sB1TRxdiM7MeYoraIfwzcw+r4DZOX8Qk7bo9co99DgDJjw9c8Dnx0wkWNnXdEM6+KU6E0EHO2WBAzBkd3NK8LD3W/tLFCUNcwNjtnkC1fVeAwHamwBfqeMgQnYKmUB4M+Y7MGJYrrfY8MiiEHDl2ticis8//GemHScLN9eICyPlYthPYqC24Q</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{25F31820-13AC-4CA2-B496-3C9D30009ED4}"
+      DTS:ObjectName="PROD-UCUDBS10\POWERBI.DW_UCU">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PROD-UCUDBS10\POWERBI;Initial Catalog=DW_UCU;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[REPORTE_BECARIOS.log]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{AF7704CE-E4B8-43DB-9393-5009E636B91E}"
+      DTS:ObjectName="REPORTE_BECARIOS.log">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\ETL UCU\REGISTRO_ERRORES\REPORTE_BECARIOS.log" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="REPORTE_BECARIOS.log"
+      DTS:CreationName="Microsoft.LogProviderTextFile"
+      DTS:Description="Escribe entradas del registro sobre eventos en un archivo CSV"
+      DTS:DTSID="{B9563770-1D32-40B2-AD2D-C3B12FFBB9A5}"
+      DTS:ObjectName="Proveedor de registro SSIS para archivos de texto">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:Variables />
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">1,7,OnError</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{B9563770-1D32-40B2-AD2D-C3B12FFBB9A5}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ETL DW_DESCUENTOS_NODUM"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{ED96784A-B1B2-4E2A-9A6F-C3E816BF33A8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL DW_DESCUENTOS_NODUM"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Carga en DW_DESCUENTOS_NODUM"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[DW_DESCUENTOS_NODUM]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  connectionManagerRefId="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[Alumno]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Alumno"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Alumno]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Alumno]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[NroContrato]"
+                      cachedDataType="i4"
+                      cachedName="NroContrato"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[NroContrato]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[NroContrato]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[Nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Nombre"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Nombre]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[Año]"
+                      cachedDataType="i4"
+                      cachedName="Año"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Año]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Año]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[Fec_ini]"
+                      cachedDataType="i4"
+                      cachedName="Fec_ini"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fec_ini]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Fec_ini]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[Fec_fin]"
+                      cachedDataType="i4"
+                      cachedName="Fec_fin"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fec_fin]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Fec_fin]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[AlumnoPS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="AlumnoPS"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[AlumnoPS]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[AlumnoPS]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[CI]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="CI"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[CI]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[CI]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[CarreraCampus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="CarreraCampus"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[CarreraCampus]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[CarreraCampus]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[Carrera]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Carrera"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Carrera]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Carrera]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[Campus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Campus"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Campus]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Campus]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[Nom_Carrera]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Nom_Carrera"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nom_Carrera]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Nom_Carrera]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[Tipo_Carrera]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Tipo_Carrera"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tipo_Carrera]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Tipo_Carrera]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[Descuento]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Descuento"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Descuento]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Descuento]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[PorcentajeDto]"
+                      cachedDataType="numeric"
+                      cachedName="PorcentajeDto"
+                      cachedPrecision="5"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[PorcentajeDto]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[PorcentajeDto]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[TipoDescuento]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="11"
+                      cachedName="TipoDescuento"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoDescuento]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[TipoDescuento]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[InicioDto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="InicioDto"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[InicioDto]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[InicioDto]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[FinDto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="FinDto"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[FinDto]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[FinDto]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[ContratoActivo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="ContratoActivo"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[ContratoActivo]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[ContratoActivo]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[ciclo_sis]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="ciclo_sis"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[ciclo_sis]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[ciclo_sis]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].Columns[Observaciones]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Observaciones"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Observaciones]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Observaciones]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Alumno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Alumno" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[NroContrato]"
+                      dataType="i4"
+                      name="NroContrato" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Año]"
+                      dataType="i4"
+                      name="Año" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fec_ini]"
+                      dataType="i4"
+                      name="Fec_ini" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fec_fin]"
+                      dataType="i4"
+                      name="Fec_fin" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[AlumnoPS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="AlumnoPS" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[CI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="CI" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[CarreraCampus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="CarreraCampus" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Carrera]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Carrera" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Campus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Campus" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nom_Carrera]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Nom_Carrera" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tipo_Carrera]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Tipo_Carrera" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Descuento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Descuento" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[PorcentajeDto]"
+                      dataType="numeric"
+                      name="PorcentajeDto"
+                      precision="5"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoDescuento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="TipoDescuento" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[InicioDto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="InicioDto" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[FinDto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="FinDto" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[ContratoActivo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ContratoActivo" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[ciclo_sis]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="ciclo_sis" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[Observaciones]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Observaciones" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Extrae de NODUM"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  v.cod_alumno Alumno, v.num_cont NroContrato, al.nom_alumno Nombre , max(cont.anio) Año, year(max(cont.fcomienzo_cont))*100+month(max(cont.fcomienzo_cont)) Fec_ini , max(v.aniomes) Fec_fin , al.cod_tit2 AlumnoPS, al.nro_dgi CI, v.cod_concepto CarreraCampus, art.cod_carrera_sis Carrera , art.cod_negocio Campus , art.nom_articulo Nom_Carrera , art.cod_grcontvta Tipo_Carrera , cpp.cod_descuento Descuento,cpp.porc_desc PorcentajeDto,
+CASE WHEN descu.tipo_descuento='B' THEN 'Beca'
+ WHEN descu.tipo_descuento='C' THEN 'Convenios'
+ WHEN descu.tipo_descuento='F' THEN 'Funcionario'
+END TipoDescuento,
+convert(varchar,convert(date,concat(min(cpp.anio_ini*100+cpp.mes_ini),'01'),103)) InicioDto,
+convert(varchar,convert(date,concat(max(cpp.anio_fin*100+cpp.mes_fin), '01'),103)) FinDto,
+v.activo_fcc ContratoActivo , cic.ciclo_sis,
+cpp.observaciones as Observaciones
+FROM v_ctactecont v
+LEFT JOIN ct_contratoscamp cONt ON v.num_cont=cont.num_cont
+LEFT JOIN ct_articulos art ON art.cod_articulo=cont.cod_articulo
+LEFT JOIN cpt_desccONtl de ON v.num_cont= de.num_cont
+LEFT JOIN cpp_desccontrato cpp ON de.nro_trans=cpp.nro_trans
+LEFT JOIN ct_desccontl descu ON cpp.cod_descuento=descu.cod_descuento
+LEFT JOIN ct_alumnos  al ON al.cod_alumno = v.cod_alumno
+LEFT JOIN ( SELECT c.cod_persona_sis , c.cod_carrera_sis , c.cod_sist_campus , c.ciclo_sis , c.nro_trans , c.anio FROM cpt_intmatricula c
+INNER JOIN (SELECT cod_persona_sis , cod_carrera_sis , cod_sist_campus , anio , max(nro_trans)  nro_trans FROM cpt_intmatricula
+GROUP BY cod_persona_sis  , cod_carrera_sis , cod_sist_campus , anio ) d ON d.cod_persona_sis = c.cod_persona_sis
+AND d.cod_carrera_sis = c.cod_carrera_sis
+AND d.cod_sist_campus = c.cod_sist_campus
+AND d.nro_trans = c.nro_trans
+AND c.anio = d.anio ) cic ON  cic.cod_persona_sis = al.cod_tit2
+AND ( case when cic.cod_sist_campus = 'MVD' then rtrim(cic.cod_carrera_sis) + 'MDEO' when cic.cod_sist_campus = 'PESTE' then rtrim(cic.cod_carrera_sis) + 'PDELESTE'
+      else rtrim(cic.cod_carrera_sis) + rtrim(cic.cod_sist_campus) end ) = v.cod_concepto
+AND cic.anio = cont.anio
+WHERE
+isnumeric(cpp.porc_desc)=1
+AND de.activo = 'S'
+-- AND DESCu.activo = 'S'
+AND DESCu.tipo_descuento = 'B'
+AND cont.anio&lt;&gt;0 -- para evitar las actividades especiales y recurses
+GROUP BY v.cod_alumno, v.num_cont,cpp.cod_descuento, cpp.porc_desc, v.cod_concepto, art.cod_carrera_sis , art.cod_negocio , art.nom_articulo , art.cod_grcontvta, al.nom_alumno,al.cod_tit2,al.nro_dgi, descu.tipo_descuento, v.activo_fcc , cic.ciclo_sis, cpp.observaciones
+
+UNION ALL
+
+SELECT  cont.cod_alumno Alumno, cont.num_cont NroContrato, al.nom_alumno Nombre , max(cont.anio) Año, year(max(cont.fcomienzo_cont))*100+month(max(cont.fcomienzo_cont)) Fec_ini , max(vcc.aniomeshasta) Fec_fin , al.cod_tit2 AlumnoPS, al.nro_dgi CI, cont.cod_articulo CarreraCampus, art.cod_carrera_sis Carrera , art.cod_negocio Campus , art.nom_articulo Nom_Carrera , art.cod_grcontvta Tipo_Carrera , cpp.cod_descuento Descuento,cpp.porc_desc PorcentajeDto,
+CASE WHEN descu.tipo_descuento='B' THEN 'Beca'
+ WHEN descu.tipo_descuento='C' THEN 'Convenios'
+ WHEN descu.tipo_descuento='F' THEN 'Funcionario'
+END TipoDescuento,
+convert(varchar,convert(date,concat(min(cpp.anio_ini*100+cpp.mes_ini),'01'),103)) InicioDto,
+convert(varchar,convert(date,concat(max(cpp.anio_fin*100+cpp.mes_fin), '01'),103)) FinDto,
+cont.activo_fcc ContratoActivo , cic.ciclo_sis,
+cpp.observaciones as Observaciones
+FROM ct_contratoscamp cONt
+LEFT JOIN ct_valcuotascont vcc ON vcc.num_cont=cont.num_cont
+LEFT JOIN ct_articulos art ON art.cod_articulo=cont.cod_articulo
+LEFT JOIN cpt_desccONtl de ON cont.num_cont= de.num_cont
+LEFT JOIN cpp_desccontrato cpp ON de.nro_trans=cpp.nro_trans
+LEFT JOIN ct_desccontl descu ON cpp.cod_descuento=descu.cod_descuento
+LEFT JOIN ct_alumnos  al ON al.cod_alumno = cont.cod_alumno
+LEFT JOIN ( SELECT c.cod_persona_sis , c.cod_carrera_sis , c.cod_sist_campus , c.ciclo_sis , c.nro_trans , c.anio FROM cpt_intmatricula c
+INNER JOIN (SELECT cod_persona_sis , cod_carrera_sis , cod_sist_campus , anio , max(nro_trans)  nro_trans FROM cpt_intmatricula
+GROUP BY cod_persona_sis , cod_carrera_sis , cod_sist_campus , anio ) d ON d.cod_persona_sis = c.cod_persona_sis
+AND d.cod_carrera_sis = c.cod_carrera_sis
+AND d.cod_sist_campus = c.cod_sist_campus
+AND d.nro_trans = c.nro_trans
+AND c.anio = d.anio ) cic ON  cic.cod_persona_sis = al.cod_tit2
+---AND cic.cod_articulo = cont.cod_articulo
+AND ( case when cic.cod_sist_campus = 'MVD' then rtrim(cic.cod_carrera_sis) + 'MDEO' when cic.cod_sist_campus = 'PESTE' then rtrim(cic.cod_carrera_sis) + 'PDELESTE'
+      else rtrim(cic.cod_carrera_sis) + rtrim(cic.cod_sist_campus) end ) = cont.cod_articulo  
+AND cic.anio = cont.anio
+WHERE
+isnumeric(cpp.porc_desc)=1
+AND vcc.tipo_tramo = 'B'
+AND vcc.activo_fcc &lt;&gt; 'N'
+AND cont.activo_fcc = 'N'
+AND de.activo = 'S'
+-- AND DESCu.activo = 'S'
+AND DESCu.tipo_descuento = 'B'
+AND cont.anio&lt;&gt;0 -- para evitar las actividades especiales y recurses
+GROUP BY cont.cod_alumno, cont.num_cont, cpp.cod_descuento, cpp.porc_desc, cont.cod_articulo, art.cod_carrera_sis, art.cod_negocio, art.nom_articulo, art.cod_grcontvta, al.nom_alumno, al.cod_tit2, al.nro_dgi, descu.tipo_descuento, cont.activo_fcc , cic.ciclo_sis, cpp.observaciones
+ORDER BY 1 , 19 DESC</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[10.245.0.6.Nodum_Prod.nodum_read]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.245.0.6.Nodum_Prod.nodum_read]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Alumno]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Alumno]"
+                      length="15"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Alumno]"
+                      name="Alumno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[NroContrato]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[NroContrato]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[NroContrato]"
+                      name="NroContrato"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre]"
+                      length="100"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Nombre]"
+                      name="Nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Año]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Año]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Año]"
+                      name="Año"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Fec_ini]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Fec_ini]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Fec_ini]"
+                      name="Fec_ini"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Fec_fin]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Fec_fin]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Fec_fin]"
+                      name="Fec_fin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[AlumnoPS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[AlumnoPS]"
+                      length="15"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[AlumnoPS]"
+                      name="AlumnoPS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[CI]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[CI]"
+                      length="20"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[CI]"
+                      name="CI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[CarreraCampus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[CarreraCampus]"
+                      length="20"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[CarreraCampus]"
+                      name="CarreraCampus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Carrera]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Carrera]"
+                      length="10"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Carrera]"
+                      name="Carrera"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Campus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Campus]"
+                      length="15"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Campus]"
+                      name="Campus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Nom_Carrera]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Nom_Carrera]"
+                      length="100"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Nom_Carrera]"
+                      name="Nom_Carrera"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Tipo_Carrera]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Tipo_Carrera]"
+                      length="15"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Tipo_Carrera]"
+                      name="Tipo_Carrera"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Descuento]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Descuento]"
+                      length="15"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Descuento]"
+                      name="Descuento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[PorcentajeDto]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[PorcentajeDto]"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[PorcentajeDto]"
+                      name="PorcentajeDto"
+                      precision="5"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[TipoDescuento]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[TipoDescuento]"
+                      length="11"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[TipoDescuento]"
+                      name="TipoDescuento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[InicioDto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[InicioDto]"
+                      length="30"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[InicioDto]"
+                      name="InicioDto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[FinDto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[FinDto]"
+                      length="30"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[FinDto]"
+                      name="FinDto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[ContratoActivo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[ContratoActivo]"
+                      length="1"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[ContratoActivo]"
+                      name="ContratoActivo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[ciclo_sis]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[ciclo_sis]"
+                      length="8"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[ciclo_sis]"
+                      name="ciclo_sis"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Observaciones]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Observaciones]"
+                      length="500"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].Columns[Observaciones]"
+                      name="Observaciones"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Alumno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Alumno" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[NroContrato]"
+                      dataType="i4"
+                      name="NroContrato" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Año]"
+                      dataType="i4"
+                      name="Año" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Fec_ini]"
+                      dataType="i4"
+                      name="Fec_ini" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Fec_fin]"
+                      dataType="i4"
+                      name="Fec_fin" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[AlumnoPS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="AlumnoPS" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[CI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="CI" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[CarreraCampus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="CarreraCampus" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Carrera]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Carrera" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Campus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Campus" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Nom_Carrera]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Nom_Carrera" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Tipo_Carrera]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Tipo_Carrera" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Descuento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Descuento" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[PorcentajeDto]"
+                      dataType="numeric"
+                      name="PorcentajeDto"
+                      precision="5"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[TipoDescuento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="TipoDescuento" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[InicioDto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="InicioDto" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[FinDto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="FinDto" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[ContratoActivo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ContratoActivo" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[ciclo_sis]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="ciclo_sis" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Observaciones]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Observaciones" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Alumno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Alumno]"
+                      name="Alumno" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[NroContrato]"
+                      dataType="i4"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[NroContrato]"
+                      name="NroContrato" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Nombre]"
+                      name="Nombre" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Año]"
+                      dataType="i4"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Año]"
+                      name="Año" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Fec_ini]"
+                      dataType="i4"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Fec_ini]"
+                      name="Fec_ini" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Fec_fin]"
+                      dataType="i4"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Fec_fin]"
+                      name="Fec_fin" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[AlumnoPS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[AlumnoPS]"
+                      name="AlumnoPS" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[CI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[CI]"
+                      name="CI" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[CarreraCampus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[CarreraCampus]"
+                      name="CarreraCampus" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Carrera]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Carrera]"
+                      name="Carrera" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Campus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Campus]"
+                      name="Campus" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Nom_Carrera]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Nom_Carrera]"
+                      name="Nom_Carrera" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Tipo_Carrera]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Tipo_Carrera]"
+                      name="Tipo_Carrera" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Descuento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Descuento]"
+                      name="Descuento" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[PorcentajeDto]"
+                      dataType="numeric"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[PorcentajeDto]"
+                      name="PorcentajeDto"
+                      precision="5"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[TipoDescuento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[TipoDescuento]"
+                      name="TipoDescuento" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[InicioDto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[InicioDto]"
+                      name="InicioDto" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[FinDto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[FinDto]"
+                      name="FinDto" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[ContratoActivo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[ContratoActivo]"
+                      name="ContratoActivo" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[ciclo_sis]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[ciclo_sis]"
+                      name="ciclo_sis" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Observaciones]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[Observaciones]"
+                      name="Observaciones" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ETL DW_DESCUENTOS_NODUM.Paths[Salida de origen de OLE DB]"
+              endId="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ETL DW_DESCUENTOS_PS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{7CCF40F9-41D6-413A-85B4-6CC245972A91}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL DW_DESCUENTOS_PS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Carga en DW_DESCUENTOS_PS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[DW_DESCUENTOS_PS]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  connectionManagerRefId="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[EMPLID]"
+                      cachedDataType="wstr"
+                      cachedLength="11"
+                      cachedName="EMPLID"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[EMPLID]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[EMPLID]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[NATIONAL_ID_TYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="NATIONAL_ID_TYPE"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[NATIONAL_ID_TYPE]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[NATIONAL_ID_TYPE]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[NATIONAL_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="NATIONAL_ID"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[NATIONAL_ID]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[NATIONAL_ID]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[FIRST_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="FIRST_NAME"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[FIRST_NAME]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[FIRST_NAME]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[MIDDLE_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="MIDDLE_NAME"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[MIDDLE_NAME]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[MIDDLE_NAME]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[LAST_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="LAST_NAME"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[LAST_NAME]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[LAST_NAME]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[SECOND_LAST_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="SECOND_LAST_NAME"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[SECOND_LAST_NAME]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[SECOND_LAST_NAME]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[PROG_STATUS]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="PROG_STATUS"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[PROG_STATUS]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[PROG_STATUS]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[ADMIT_TERM]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="ADMIT_TERM"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[ADMIT_TERM]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[ADMIT_TERM]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[UCU_CICLO_GEN]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="UCU_CICLO_GEN"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_CICLO_GEN]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_CICLO_GEN]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[ACAD_PROG]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="ACAD_PROG"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[ACAD_PROG]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[ACAD_PROG]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[DESCR]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="DESCR"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCR]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[DESCR]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[UCU_EMAIL_CAMP]"
+                      cachedDataType="wstr"
+                      cachedLength="70"
+                      cachedName="UCU_EMAIL_CAMP"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_EMAIL_CAMP]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_EMAIL_CAMP]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[UCU_EMAIL_HOME]"
+                      cachedDataType="wstr"
+                      cachedLength="70"
+                      cachedName="UCU_EMAIL_HOME"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_EMAIL_HOME]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_EMAIL_HOME]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[UCU_EMAIL_PREF]"
+                      cachedDataType="wstr"
+                      cachedLength="70"
+                      cachedName="UCU_EMAIL_PREF"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_EMAIL_PREF]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_EMAIL_PREF]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[UCU_TEL_HOME]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="UCU_TEL_HOME"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_TEL_HOME]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_TEL_HOME]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[UCU_EXT_HOME]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="UCU_EXT_HOME"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_EXT_HOME]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_EXT_HOME]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[UCU_TEL_CELL]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="UCU_TEL_CELL"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_TEL_CELL]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_TEL_CELL]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[UCU_EXT_CELL]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="UCU_EXT_CELL"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_EXT_CELL]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_EXT_CELL]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[UCU_TEL_PREF]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="UCU_TEL_PREF"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_TEL_PREF]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_TEL_PREF]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[UCU_EXT_PREF]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="UCU_EXT_PREF"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_EXT_PREF]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_EXT_PREF]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[CAMPUS]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="CAMPUS"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[CAMPUS]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[CAMPUS]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[UCU_NOTA_PROM_NUM]"
+                      cachedDataType="numeric"
+                      cachedName="UCU_NOTA_PROM_NUM"
+                      cachedPrecision="5"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_NOTA_PROM_NUM]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_NOTA_PROM_NUM]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[INSTITUTION]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="INSTITUTION"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[INSTITUTION]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[INSTITUTION]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[ACAD_CAREER]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="ACAD_CAREER"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[ACAD_CAREER]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[ACAD_CAREER]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[UCU_ID_CONCURSO]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="UCU_ID_CONCURSO"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_ID_CONCURSO]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_ID_CONCURSO]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[UCU_ID_BECA]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="UCU_ID_BECA"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_ID_BECA]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_ID_BECA]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[UCU_GANA_BECA]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="UCU_GANA_BECA"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_GANA_BECA]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_GANA_BECA]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[UCU_PORCENTAJE]"
+                      cachedDataType="numeric"
+                      cachedName="UCU_PORCENTAJE"
+                      cachedPrecision="5"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_PORCENTAJE]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_PORCENTAJE]" />
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].Columns[Copia de INFO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4000"
+                      cachedName="Copia de INFO"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[INFO]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Transforma datos necesarios.Outputs[Salida de conversión de datos].Columns[Copia de INFO]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[EMPLID]"
+                      dataType="wstr"
+                      length="11"
+                      name="EMPLID" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[NATIONAL_ID_TYPE]"
+                      dataType="wstr"
+                      length="6"
+                      name="NATIONAL_ID_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[NATIONAL_ID]"
+                      dataType="wstr"
+                      length="20"
+                      name="NATIONAL_ID" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[FIRST_NAME]"
+                      dataType="wstr"
+                      length="30"
+                      name="FIRST_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[MIDDLE_NAME]"
+                      dataType="wstr"
+                      length="30"
+                      name="MIDDLE_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[LAST_NAME]"
+                      dataType="wstr"
+                      length="30"
+                      name="LAST_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[SECOND_LAST_NAME]"
+                      dataType="wstr"
+                      length="30"
+                      name="SECOND_LAST_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[PROG_STATUS]"
+                      dataType="wstr"
+                      length="4"
+                      name="PROG_STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[ADMIT_TERM]"
+                      dataType="wstr"
+                      length="4"
+                      name="ADMIT_TERM" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_CICLO_GEN]"
+                      dataType="wstr"
+                      length="4"
+                      name="UCU_CICLO_GEN" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[ACAD_PROG]"
+                      dataType="wstr"
+                      length="5"
+                      name="ACAD_PROG" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCR]"
+                      dataType="wstr"
+                      length="30"
+                      name="DESCR" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_EMAIL_CAMP]"
+                      dataType="wstr"
+                      length="70"
+                      name="UCU_EMAIL_CAMP" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_EMAIL_HOME]"
+                      dataType="wstr"
+                      length="70"
+                      name="UCU_EMAIL_HOME" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_EMAIL_PREF]"
+                      dataType="wstr"
+                      length="70"
+                      name="UCU_EMAIL_PREF" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_TEL_HOME]"
+                      dataType="wstr"
+                      length="24"
+                      name="UCU_TEL_HOME" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_EXT_HOME]"
+                      dataType="wstr"
+                      length="6"
+                      name="UCU_EXT_HOME" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_TEL_CELL]"
+                      dataType="wstr"
+                      length="24"
+                      name="UCU_TEL_CELL" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_EXT_CELL]"
+                      dataType="wstr"
+                      length="6"
+                      name="UCU_EXT_CELL" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_TEL_PREF]"
+                      dataType="wstr"
+                      length="24"
+                      name="UCU_TEL_PREF" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_EXT_PREF]"
+                      dataType="wstr"
+                      length="6"
+                      name="UCU_EXT_PREF" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[CAMPUS]"
+                      dataType="wstr"
+                      length="5"
+                      name="CAMPUS" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_NOTA_PROM_NUM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="UCU_NOTA_PROM_NUM" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[INSTITUTION]"
+                      dataType="wstr"
+                      length="5"
+                      name="INSTITUTION" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[ACAD_CAREER]"
+                      dataType="wstr"
+                      length="4"
+                      name="ACAD_CAREER" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[INFO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4000"
+                      name="INFO" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_ID_CONCURSO]"
+                      dataType="wstr"
+                      length="6"
+                      name="UCU_ID_CONCURSO" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_ID_BECA]"
+                      dataType="wstr"
+                      length="6"
+                      name="UCU_ID_BECA" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_GANA_BECA]"
+                      dataType="wstr"
+                      length="1"
+                      name="UCU_GANA_BECA" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB].ExternalColumns[UCU_PORCENTAJE]"
+                      dataType="numeric"
+                      name="UCU_PORCENTAJE"
+                      precision="5"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Extrae de PS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT C.EMPLID 
+ , F.NATIONAL_ID_TYPE 
+ , F.NATIONAL_ID 
+ , E.FIRST_NAME 
+ , E.MIDDLE_NAME 
+ , E.LAST_NAME 
+ , E.SECOND_LAST_NAME 
+ , C.PROG_STATUS 
+ , C.ADMIT_TERM 
+ , J.Ucu_Ciclo_Gen
+, D.ACAD_PROG 
+ , D.DESCR 
+ , G.UCU_EMAIL_CAMP 
+ , G.UCU_EMAIL_HOME 
+ , G.UCU_EMAIL_PREF 
+ , H.UCU_TEL_HOME 
+ , H.UCU_EXT_HOME 
+ , H.UCU_TEL_CELL 
+ , H.UCU_EXT_CELL 
+ , H.UCU_TEL_PREF 
+ , H.UCU_EXT_PREF 
+ , C.CAMPUS 
+ , I.UCU_NOTA_PROM_NUM 
+ , D.INSTITUTION 
+ , D.ACAD_CAREER 
+ , ( 
+       SELECT LISTAGG (HIS.ACAD_PROG || '-' || HIS.ADMIT_TERM || '-' || HIS.PROG_ACTION || '-' || HIS.ACTION_DT , ' ,  ' ) WITHIN 
+        GROUP ( ORDER BY HIS.ACTION_DT) 
+        FROM SYSADM.PS_ACAD_PROG HIS 
+        WHERE HIS.PROG_ACTION NOT IN ('ADMT','APPL') 
+        AND HIS.EMPLID =C.EMPLID
+       AND His.Acad_Career NOT IN ('CURS', 'CURG', 'CDP', 'ISED') 
+       ) AS info
+, PUBR.UCU_ID_CONCURSO
+, PUBR.UCU_ID_BECA 
+ , PUBR.UCU_GANA_BECA 
+ , PUBR.UCU_PORCENTAJE 
+ FROM  SYSADM.PS_ACAD_PROG C , SYSADM.PS_ACAD_PROG_TBL D , SYSADM.PS_UCU_ACAD_PROG J , SYSADM.PS_PERSONAL_DATA E , SYSADM.PS_PERS_NID F , 
+ SYSADM.PS_UCU_CORREOS_VW G , SYSADM.PS_UCU_TELEFONO_VW H , SYSADM.PS_UCU_PROM_ALU I, sysadm.PS_UCU_BECA_RESULT pubr 
+ WHERE 
+   C.EFFDT = ( 
+                  SELECT MAX(C_ED.EFFDT) 
+                  FROM SYSADM.PS_ACAD_PROG C_ED 
+                  WHERE C.EMPLID = C_ED.EMPLID 
+                  AND C.ACAD_CAREER = C_ED.ACAD_CAREER 
+                  AND C.STDNT_CAR_NBR = C_ED.STDNT_CAR_NBR 
+                  AND C_ED.EFFDT &lt;= SYSDATE) 
+   AND C.EFFSEQ = ( 
+                  SELECT MAX(C_ES.EFFSEQ) 
+                  FROM SYSADM.PS_ACAD_PROG C_ES 
+                  WHERE C.EMPLID = C_ES.EMPLID 
+                  AND C.ACAD_CAREER = C_ES.ACAD_CAREER 
+                  AND C.STDNT_CAR_NBR = C_ES.STDNT_CAR_NBR 
+                  AND C.EFFDT = C_ES.EFFDT) 
+   AND C.ACAD_CAREER = D.ACAD_CAREER 
+   AND D.INSTITUTION = C.INSTITUTION 
+   AND D.ACAD_PROG = C.ACAD_PROG 
+   AND C.PROG_STATUS = 'AC'
+   AND D.EFFDT = ( 
+             SELECT MAX(D_ED.EFFDT) 
+             FROM SYSADM.PS_ACAD_PROG_TBL D_ED 
+             WHERE D.INSTITUTION = D_ED.INSTITUTION 
+             AND D.ACAD_PROG = D_ED.ACAD_PROG 
+             AND D_ED.EFFDT &lt;= SYSDATE) 
+   AND C.EMPLID = E.EMPLID 
+   AND E.EMPLID = F.EMPLID 
+   AND F.PRIMARY_NID = 'Y' 
+   AND E.EMPLID = G.EMPLID 
+   AND E.EMPLID = H.EMPLID 
+   AND C.EMPLID = J.EMPLID (+) 
+   AND C.ACAD_CAREER = J.ACAD_CAREER (+) 
+   AND C.STDNT_CAR_NBR = J.STDNT_CAR_NBR (+) 
+   AND C.EFFDT = J.EFFDT (+) 
+   AND C.EFFSEQ = J.EFFSEQ (+) 
+   AND C.EMPLID = I.EMPLID (+) 
+   AND C.ACAD_CAREER = I.ACAD_CAREER (+) 
+   AND C.ACAD_PROG = I.ACAD_PROG (+)
+   AND C.EMPLID = pubr.EMPLID (+)
+   AND (pubr.UCU_GANA_BECA = 'Y' OR pubr.UCU_ID_BECA  IS NULL)</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[HRPROD.UCU_GP]"
+                  connectionManagerRefId="Package.ConnectionManagers[HRPROD.UCU_GP]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[EMPLID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[EMPLID]"
+                      length="11"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[EMPLID]"
+                      name="EMPLID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[NATIONAL_ID_TYPE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[NATIONAL_ID_TYPE]"
+                      length="6"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[NATIONAL_ID_TYPE]"
+                      name="NATIONAL_ID_TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[NATIONAL_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[NATIONAL_ID]"
+                      length="20"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[NATIONAL_ID]"
+                      name="NATIONAL_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[FIRST_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[FIRST_NAME]"
+                      length="30"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[FIRST_NAME]"
+                      name="FIRST_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[MIDDLE_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[MIDDLE_NAME]"
+                      length="30"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[MIDDLE_NAME]"
+                      name="MIDDLE_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[LAST_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[LAST_NAME]"
+                      length="30"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[LAST_NAME]"
+                      name="LAST_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[SECOND_LAST_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[SECOND_LAST_NAME]"
+                      length="30"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[SECOND_LAST_NAME]"
+                      name="SECOND_LAST_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[PROG_STATUS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[PROG_STATUS]"
+                      length="4"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[PROG_STATUS]"
+                      name="PROG_STATUS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[ADMIT_TERM]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[ADMIT_TERM]"
+                      length="4"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[ADMIT_TERM]"
+                      name="ADMIT_TERM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_CICLO_GEN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_CICLO_GEN]"
+                      length="4"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_CICLO_GEN]"
+                      name="UCU_CICLO_GEN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[ACAD_PROG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[ACAD_PROG]"
+                      length="5"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[ACAD_PROG]"
+                      name="ACAD_PROG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[DESCR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[DESCR]"
+                      length="30"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[DESCR]"
+                      name="DESCR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_EMAIL_CAMP]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_EMAIL_CAMP]"
+                      length="70"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_EMAIL_CAMP]"
+                      name="UCU_EMAIL_CAMP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_EMAIL_HOME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_EMAIL_HOME]"
+                      length="70"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_EMAIL_HOME]"
+                      name="UCU_EMAIL_HOME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_EMAIL_PREF]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_EMAIL_PREF]"
+                      length="70"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_EMAIL_PREF]"
+                      name="UCU_EMAIL_PREF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_TEL_HOME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_TEL_HOME]"
+                      length="24"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_TEL_HOME]"
+                      name="UCU_TEL_HOME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_EXT_HOME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_EXT_HOME]"
+                      length="6"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_EXT_HOME]"
+                      name="UCU_EXT_HOME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_TEL_CELL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_TEL_CELL]"
+                      length="24"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_TEL_CELL]"
+                      name="UCU_TEL_CELL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_EXT_CELL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_EXT_CELL]"
+                      length="6"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_EXT_CELL]"
+                      name="UCU_EXT_CELL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_TEL_PREF]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_TEL_PREF]"
+                      length="24"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_TEL_PREF]"
+                      name="UCU_TEL_PREF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_EXT_PREF]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_EXT_PREF]"
+                      length="6"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_EXT_PREF]"
+                      name="UCU_EXT_PREF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[CAMPUS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[CAMPUS]"
+                      length="5"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[CAMPUS]"
+                      name="CAMPUS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_NOTA_PROM_NUM]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_NOTA_PROM_NUM]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_NOTA_PROM_NUM]"
+                      name="UCU_NOTA_PROM_NUM"
+                      precision="5"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[INSTITUTION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[INSTITUTION]"
+                      length="5"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[INSTITUTION]"
+                      name="INSTITUTION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[ACAD_CAREER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[ACAD_CAREER]"
+                      length="4"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[ACAD_CAREER]"
+                      name="ACAD_CAREER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[INFO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[INFO]"
+                      length="4000"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[INFO]"
+                      name="INFO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_ID_CONCURSO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_ID_CONCURSO]"
+                      length="6"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_ID_CONCURSO]"
+                      name="UCU_ID_CONCURSO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_ID_BECA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_ID_BECA]"
+                      length="6"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_ID_BECA]"
+                      name="UCU_ID_BECA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_GANA_BECA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_GANA_BECA]"
+                      length="1"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_GANA_BECA]"
+                      name="UCU_GANA_BECA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_PORCENTAJE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_PORCENTAJE]"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[UCU_PORCENTAJE]"
+                      name="UCU_PORCENTAJE"
+                      precision="5"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[EMPLID]"
+                      dataType="wstr"
+                      length="11"
+                      name="EMPLID" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[NATIONAL_ID_TYPE]"
+                      dataType="wstr"
+                      length="6"
+                      name="NATIONAL_ID_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[NATIONAL_ID]"
+                      dataType="wstr"
+                      length="20"
+                      name="NATIONAL_ID" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[FIRST_NAME]"
+                      dataType="wstr"
+                      length="30"
+                      name="FIRST_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[MIDDLE_NAME]"
+                      dataType="wstr"
+                      length="30"
+                      name="MIDDLE_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[LAST_NAME]"
+                      dataType="wstr"
+                      length="30"
+                      name="LAST_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[SECOND_LAST_NAME]"
+                      dataType="wstr"
+                      length="30"
+                      name="SECOND_LAST_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[PROG_STATUS]"
+                      dataType="wstr"
+                      length="4"
+                      name="PROG_STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[ADMIT_TERM]"
+                      dataType="wstr"
+                      length="4"
+                      name="ADMIT_TERM" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_CICLO_GEN]"
+                      dataType="wstr"
+                      length="4"
+                      name="UCU_CICLO_GEN" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[ACAD_PROG]"
+                      dataType="wstr"
+                      length="5"
+                      name="ACAD_PROG" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[DESCR]"
+                      dataType="wstr"
+                      length="30"
+                      name="DESCR" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_EMAIL_CAMP]"
+                      dataType="wstr"
+                      length="70"
+                      name="UCU_EMAIL_CAMP" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_EMAIL_HOME]"
+                      dataType="wstr"
+                      length="70"
+                      name="UCU_EMAIL_HOME" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_EMAIL_PREF]"
+                      dataType="wstr"
+                      length="70"
+                      name="UCU_EMAIL_PREF" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_TEL_HOME]"
+                      dataType="wstr"
+                      length="24"
+                      name="UCU_TEL_HOME" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_EXT_HOME]"
+                      dataType="wstr"
+                      length="6"
+                      name="UCU_EXT_HOME" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_TEL_CELL]"
+                      dataType="wstr"
+                      length="24"
+                      name="UCU_TEL_CELL" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_EXT_CELL]"
+                      dataType="wstr"
+                      length="6"
+                      name="UCU_EXT_CELL" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_TEL_PREF]"
+                      dataType="wstr"
+                      length="24"
+                      name="UCU_TEL_PREF" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_EXT_PREF]"
+                      dataType="wstr"
+                      length="6"
+                      name="UCU_EXT_PREF" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[CAMPUS]"
+                      dataType="wstr"
+                      length="5"
+                      name="CAMPUS" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_NOTA_PROM_NUM]"
+                      dataType="numeric"
+                      name="UCU_NOTA_PROM_NUM"
+                      precision="5"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[INSTITUTION]"
+                      dataType="wstr"
+                      length="5"
+                      name="INSTITUTION" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[ACAD_CAREER]"
+                      dataType="wstr"
+                      length="4"
+                      name="ACAD_CAREER" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[INFO]"
+                      dataType="wstr"
+                      length="4000"
+                      name="INFO" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_ID_CONCURSO]"
+                      dataType="wstr"
+                      length="6"
+                      name="UCU_ID_CONCURSO" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_ID_BECA]"
+                      dataType="wstr"
+                      length="6"
+                      name="UCU_ID_BECA" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_GANA_BECA]"
+                      dataType="wstr"
+                      length="1"
+                      name="UCU_GANA_BECA" />
+                    <externalMetadataColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].ExternalColumns[UCU_PORCENTAJE]"
+                      dataType="numeric"
+                      name="UCU_PORCENTAJE"
+                      precision="5"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[EMPLID]"
+                      dataType="wstr"
+                      length="11"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[EMPLID]"
+                      name="EMPLID" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[NATIONAL_ID_TYPE]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[NATIONAL_ID_TYPE]"
+                      name="NATIONAL_ID_TYPE" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[NATIONAL_ID]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[NATIONAL_ID]"
+                      name="NATIONAL_ID" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[FIRST_NAME]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[FIRST_NAME]"
+                      name="FIRST_NAME" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[MIDDLE_NAME]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[MIDDLE_NAME]"
+                      name="MIDDLE_NAME" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[LAST_NAME]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[LAST_NAME]"
+                      name="LAST_NAME" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[SECOND_LAST_NAME]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[SECOND_LAST_NAME]"
+                      name="SECOND_LAST_NAME" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[PROG_STATUS]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[PROG_STATUS]"
+                      name="PROG_STATUS" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[ADMIT_TERM]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[ADMIT_TERM]"
+                      name="ADMIT_TERM" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_CICLO_GEN]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_CICLO_GEN]"
+                      name="UCU_CICLO_GEN" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[ACAD_PROG]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[ACAD_PROG]"
+                      name="ACAD_PROG" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[DESCR]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[DESCR]"
+                      name="DESCR" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_EMAIL_CAMP]"
+                      dataType="wstr"
+                      length="70"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_EMAIL_CAMP]"
+                      name="UCU_EMAIL_CAMP" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_EMAIL_HOME]"
+                      dataType="wstr"
+                      length="70"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_EMAIL_HOME]"
+                      name="UCU_EMAIL_HOME" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_EMAIL_PREF]"
+                      dataType="wstr"
+                      length="70"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_EMAIL_PREF]"
+                      name="UCU_EMAIL_PREF" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_TEL_HOME]"
+                      dataType="wstr"
+                      length="24"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_TEL_HOME]"
+                      name="UCU_TEL_HOME" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_EXT_HOME]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_EXT_HOME]"
+                      name="UCU_EXT_HOME" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_TEL_CELL]"
+                      dataType="wstr"
+                      length="24"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_TEL_CELL]"
+                      name="UCU_TEL_CELL" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_EXT_CELL]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_EXT_CELL]"
+                      name="UCU_EXT_CELL" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_TEL_PREF]"
+                      dataType="wstr"
+                      length="24"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_TEL_PREF]"
+                      name="UCU_TEL_PREF" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_EXT_PREF]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_EXT_PREF]"
+                      name="UCU_EXT_PREF" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[CAMPUS]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[CAMPUS]"
+                      name="CAMPUS" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_NOTA_PROM_NUM]"
+                      dataType="numeric"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_NOTA_PROM_NUM]"
+                      name="UCU_NOTA_PROM_NUM"
+                      precision="5"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[INSTITUTION]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[INSTITUTION]"
+                      name="INSTITUTION" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[ACAD_CAREER]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[ACAD_CAREER]"
+                      name="ACAD_CAREER" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[INFO]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[INFO]"
+                      name="INFO" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_ID_CONCURSO]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_ID_CONCURSO]"
+                      name="UCU_ID_CONCURSO" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_ID_BECA]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_ID_BECA]"
+                      name="UCU_ID_BECA" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_GANA_BECA]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_GANA_BECA]"
+                      name="UCU_GANA_BECA" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_PORCENTAJE]"
+                      dataType="numeric"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[UCU_PORCENTAJE]"
+                      name="UCU_PORCENTAJE"
+                      precision="5"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL DW_DESCUENTOS_PS\Transforma datos necesarios"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Transforma datos necesarios"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ETL DW_DESCUENTOS_PS\Transforma datos necesarios.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Transforma datos necesarios.Inputs[Entrada de conversión de datos].Columns[INFO]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="INFO"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[INFO]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL DW_DESCUENTOS_PS\Transforma datos necesarios.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\ETL DW_DESCUENTOS_PS\Transforma datos necesarios.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Transforma datos necesarios.Outputs[Salida de conversión de datos].Columns[Copia de INFO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="4000"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Transforma datos necesarios.Outputs[Salida de conversión de datos].Columns[Copia de INFO]"
+                      name="Copia de INFO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB].Columns[INFO]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL DW_DESCUENTOS_PS\Transforma datos necesarios.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\ETL DW_DESCUENTOS_PS\Transforma datos necesarios.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Transforma datos necesarios.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Transforma datos necesarios.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL DW_DESCUENTOS_PS\Transforma datos necesarios.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL DW_DESCUENTOS_PS\Transforma datos necesarios.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ETL DW_DESCUENTOS_PS.Paths[Salida de conversión de datos]"
+              endId="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de conversión de datos"
+              startId="Package\ETL DW_DESCUENTOS_PS\Transforma datos necesarios.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\ETL DW_DESCUENTOS_PS.Paths[Salida de origen de OLE DB]"
+              endId="Package\ETL DW_DESCUENTOS_PS\Transforma datos necesarios.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de OLE DB"
+              startId="Package\ETL DW_DESCUENTOS_PS\Extrae de PS.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TRUNCATE DW_DESCUENTOS_NODUM"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{B3E823A0-68C2-4491-A5A3-2B8A0BB3035D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRUNCATE DW_DESCUENTOS_NODUM"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{25F31820-13AC-4CA2-B496-3C9D30009ED4}"
+          SQLTask:SqlStatementSource="truncate table  DW_DESCUENTOS_NODUM" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TRUNCATE DW_DWSCUENTOS_PS"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{C95BEE8B-418B-46E7-AA79-286A40A5A79F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRUNCATE DW_DWSCUENTOS_PS"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{25F31820-13AC-4CA2-B496-3C9D30009ED4}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE DW_DESCUENTOS_PS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{64D52889-814F-417E-9659-5D5B2BA3CCA6}"
+      DTS:From="Package\TRUNCATE DW_DWSCUENTOS_PS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\ETL DW_DESCUENTOS_PS" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{B2F7FCCE-2F26-472F-B867-07BE2BB48F1F}"
+      DTS:From="Package\TRUNCATE DW_DESCUENTOS_NODUM"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\ETL DW_DESCUENTOS_NODUM" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="231.2,42"
+          Id="Package\ETL DW_DESCUENTOS_NODUM"
+          TopLeft="410.5,119.5" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\ETL DW_DESCUENTOS_PS"
+          TopLeft="23.5,117.5" />
+        <NodeLayout
+          Size="264.8,42"
+          Id="Package\TRUNCATE DW_DESCUENTOS_NODUM"
+          TopLeft="392.5,18.5" />
+        <NodeLayout
+          Size="244,42"
+          Id="Package\TRUNCATE DW_DWSCUENTOS_PS"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="127,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70"
+              Start="0,0"
+              End="0,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="525.5,60.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ETL DW_DESCUENTOS_NODUM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="256,42"
+          Id="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM"
+          TopLeft="69.5,154.5" />
+        <EdgeLayout
+          Id="Package\ETL DW_DESCUENTOS_NODUM.Paths[Salida de origen de OLE DB]"
+          TopLeft="87.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="110,107"
+              Start="0,0"
+              End="110,99.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,49.5"
+                    Point2="0,53.5"
+                    Point3="4,53.5" />
+                  <mssgle:LineSegment
+                    End="106,53.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="106,53.5"
+                    Point2="110,53.5"
+                    Point3="110,57.5" />
+                  <mssgle:LineSegment
+                    End="110,99.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL DW_DESCUENTOS_NODUM\Carga en DW_DESCUENTOS_NODUM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL DW_DESCUENTOS_NODUM\Extrae de NODUM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\ETL DW_DESCUENTOS_PS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\ETL DW_DESCUENTOS_PS\Extrae de PS"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\ETL DW_DESCUENTOS_PS\Transforma datos necesarios"
+          TopLeft="50.5,130.5" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS"
+          TopLeft="53.5,231.5" />
+        <EdgeLayout
+          Id="Package\ETL DW_DESCUENTOS_PS.Paths[Salida de origen de OLE DB]"
+          TopLeft="75,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="83,83"
+              Start="0,0"
+              End="83,75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.5"
+                    Point2="0,41.5"
+                    Point3="4,41.5" />
+                  <mssgle:LineSegment
+                    End="79,41.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="79,41.5"
+                    Point2="83,41.5"
+                    Point3="83,45.5" />
+                  <mssgle:LineSegment
+                    End="83,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL DW_DESCUENTOS_PS.Paths[Salida de conversión de datos]"
+          TopLeft="158,172.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.5,59"
+              Start="0,0"
+              End="10.5,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.5"
+                    Point2="0,29.5"
+                    Point3="4,29.5" />
+                  <mssgle:LineSegment
+                    End="6.5,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.5,29.5"
+                    Point2="10.5,29.5"
+                    Point3="10.5,33.5" />
+                  <mssgle:LineSegment
+                    End="10.5,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL DW_DESCUENTOS_PS\Extrae de PS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL DW_DESCUENTOS_PS\Carga en DW_DESCUENTOS_PS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
