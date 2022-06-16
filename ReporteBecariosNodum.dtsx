@@ -12,8 +12,8 @@
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{B10124DC-3818-4DEE-AC0F-D006B9A08F19}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{B9A047FC-A049-4FC6-BBDF-05B686794DD0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,12 +27,12 @@
           DTS:ConnectionString="Data Source=10.245.0.6;User ID=nodum_read;Initial Catalog=Nodum_Prod;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="wiW7wTSJ1vE="
-            IV="ltioOnc7qUlwijavVTkhUA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="rK/rMhgdR+w="
+            IV="Hq2Buv+58BtjMxlwe4gv+Q==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>ltioOnc7qUlwijavVTkhUMMLvp8R5uU2k+z7MpyWL9v2OB8yc+bXkAfWmj4Osr8PPI7r6pydp1Q722ZwUCKAZd1bxNZVQJduN76vNCA83SQz87qURjx699D/yCims+QvS4hVBn9FO5Gc7Zxg9VPT+a+rQFKASIua/dPysxmKbFM71uTKBFzPMtVhT373PHPA</CipherValue>
+              <CipherValue>Hq2Buv+58BtjMxlwe4gv+U6BJOGOWdPHVKjpNXhqoBfBkk9loXzpu7eE1BFmmaNEJRUNAdzCjP8i3NMgIeQl5U1InYTx1d8G4hm1Kp6Y6fh8NKrLSVVFJjCPK3rDjLHMoRhFKfqApW73+kz92U3PaMZM78nDUDDfsexT6vYv9Uz3AyXcZF9bf+b/rC0dz14P</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -48,12 +48,12 @@
           DTS:ConnectionString="Data Source=HRPROD;User ID=UCU_GP;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="6QpFHIUjrNg="
-            IV="pciPxCdJyd2sB1TRxdiM7A==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="dxGSfAW5uHk="
+            IV="gsrPytEL6xIWR5YOwQPmMA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>pciPxCdJyd2sB1TRxdiM7MeYoraIfwzcw+r4DZOX8Qk7bo9co99DgDJjw9c8Dnx0wkWNnXdEM6+KU6E0EHO2WBAzBkd3NK8LD3W/tLFCUNcwNjtnkC1fVeAwHamwBfqeMgQnYKmUB4M+Y7MGJYrrfY8MiiEHDl2ticis8//GemHScLN9eICyPlYthPYqC24Q</CipherValue>
+              <CipherValue>gsrPytEL6xIWR5YOwQPmMPoLDT7v8EgqaePgNMCBxML1j3oMLrtVLNAR+UdMWfBMCPiH9O7Ddh70VR2TJHeAmxNJmVefiULYnp2fka4w66u9inggSYCeMUa6c3IdW8iQAUetI2H2rCnCacmObrfdCtBYyqcRmxLQ0Y9OB9cJREg361+Cg0QLx10v2PIyhain</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -2561,7 +2561,7 @@ ORDER BY 1 , 19 DESC</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="TRUNCATE DW_DESCUENTOS_NODUM"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2578,7 +2578,7 @@ ORDER BY 1 , 19 DESC</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="TRUNCATE DW_DWSCUENTOS_PS"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -2620,7 +2620,7 @@ ORDER BY 1 , 19 DESC</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="231.2,42"
+          Size="231,42"
           Id="Package\ETL DW_DESCUENTOS_NODUM"
           TopLeft="410.5,119.5" />
         <NodeLayout
@@ -2628,7 +2628,7 @@ ORDER BY 1 , 19 DESC</property>
           Id="Package\ETL DW_DESCUENTOS_PS"
           TopLeft="23.5,117.5" />
         <NodeLayout
-          Size="264.8,42"
+          Size="265,42"
           Id="Package\TRUNCATE DW_DESCUENTOS_NODUM"
           TopLeft="392.5,18.5" />
         <NodeLayout
